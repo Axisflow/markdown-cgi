@@ -1,0 +1,23 @@
+* {
+    --margin: 25%;
+    scroll-behavior: smooth;
+}
+
+html {
+    width:100%;
+}
+
+body {
+    margin:0;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+
+main {
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    max-width: calc(100% - var(--margin) * 2);
+}
