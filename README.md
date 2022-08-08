@@ -1,8 +1,16 @@
 # **markdown-cgi**
 - This is a CGI module written in C for serving Markdown files.
 ---
+
 ## Features
 - Render markdown file to html style with C on the server side.
+
+## Environment
+| System | Software | Test |
+| :----: | :----: | :----: |
+| Windows 11 | IIS 10.0 | :white_check_mark: |
+| Ubuntu 22.04 LTS | Apache 2.4.52 | :white_check_mark: |
+
 ## Usage
 1. Download the source code
     ```
@@ -20,9 +28,9 @@
         ```
 4. Settings
     - IIS 10 on Windows
-        1. Type **Win+R**, input `OptionalFeatures` and enter
+        1. Press **Win+R**, input `OptionalFeatures` and enter
         2. Ensure `Internet Information Services > World Wide Web Services > Application Development Features > CGI` selected
-        3. Type **Win+R**, input `InetMgr` and enter
+        3. Press **Win+R**, input `InetMgr` and enter
         4. Select an object(Host, Website, Directory or Application) from the tree
             > You can also add the following text in the tag **\<configuration\>** of the `web.config` file in the object path to skip steps 4~6(replace [] with yours):
             > ```xml
@@ -42,7 +50,7 @@
         8. Click *Add...* on the actions pane
             - ISAPI or CGI path: Choose `md-cgi.exe` just compiled
             - Description: Type `Markdown-CGI`
-            - Allow extension path to execute: ☑️
+            - Allow extension path to execute: :ballot_box_with_check:
     - Apache 2 on Linux(Ubuntu)
         > Assumed that your Apache installed from `apt` command
         1. In the terminal, type `apachectl -M` to ensure *actions_module*, *cgi_module* and *cgid_module* enabled. If not, type the following commands:
@@ -60,8 +68,10 @@
             ```
         4. Move `md-cgi` just compiled to `/usr/lib/cgi-bin/` 
 5. Finished and you can try to open a markdown file throught your host by browsers
+
 ## Dependencies
 - Use mity's MD4C 0.4.8 as Markdown-to-HTML converter gratefully.
+
 ## License
 - `markdown-cgi` is covered with MIT license. Please see the file `LICENSE`.
 - Some resources have different licenses. Please see the file `res/LICENSE`.
