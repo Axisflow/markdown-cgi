@@ -1,5 +1,9 @@
 # Change Log
 
+> ## v0.2.1
+>> ### Changes
+>>> 1. Turn the favicon base64 code into a file.
+>>> 2. Delete similar codes and add a new function to print favicon, css, and javascript.
 > ## v0.2.0
 >> ### New Features
 >>> 1. Customizable CSS styles in `md-cgi.css` (that must be saved in the same directory with `md-cgi`).
