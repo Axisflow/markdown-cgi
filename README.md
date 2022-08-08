@@ -3,7 +3,7 @@
 ---
 
 ## Features
-- Render markdown file to html style with C on the server side.
+- It can render markdown file to html style with C on the server side.
 
 ## Environment
 | System | Software | Test |
@@ -52,7 +52,7 @@
             - Description: Type `Markdown-CGI`
             - Allow extension path to execute: :ballot_box_with_check:
     - Apache 2 on Linux(Ubuntu)
-        > Assumed that your Apache installed from `apt` command
+        > Assumed that your Apache was installed from `apt` command
         1. In the terminal, type `apachectl -M` to ensure *actions_module*, *cgi_module* and *cgid_module* enabled. If not, type the following commands:
             ```bash
             sudo a2enmod actions cgid
