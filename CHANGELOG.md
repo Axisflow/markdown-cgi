@@ -1,5 +1,13 @@
 # Change Log
 
+> ## v0.3.0
+>> ### New Features
+>>> 1. Tables, Underlines, Task Lists and Auto Linking are supported.
+>> ### Changes
+>>> 1.  The title is now filename instead of the path of file.
+>> ### Bug Fixed
+>>> 1. [**Security**] On Apache, the title is always the path of `md-cgi`.
+---
 > ## v0.2.1
 >> ### Changes
 >>> 1. Turn the favicon base64 code into a file.
@@ -21,4 +29,4 @@
 >>> 2. Just print the output from `md_html()`.
 >> 
 >> ### Bugs Found
->>> 1. Generate garbled text(or regular but not exists in the file) after original document in some makedown files.
+>>> 1. [**Security**] Generate garbled text(or regular but not exists in the file) after original document in some makedown files if it is served on IIS.

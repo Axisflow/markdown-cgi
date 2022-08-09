@@ -46,7 +46,6 @@ int main(int argc, char* argv[], char *envp[]) {
     printf("Content-type: text/html\r\n");
     printf("\r\n");
 
-    char *script_name = getenv("SCRIPT_NAME");
     char *path_translated = getenv("PATH_TRANSLATED");
     char *self_path = argv[0];
 
@@ -59,7 +58,23 @@ int main(int argc, char* argv[], char *envp[]) {
     printf("<html>");
     printf("<head>");
     printf("<meta charset=\"utf-8\">");
-    printf("<title>%s</title>", script_name);
+    printf("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+    printf("<title>");
+
+    if (path_translated != NULL) {
+        int slash = 0;
+        for(int i = strlen(path_translated) - 1; i >= 0; i--) {
+            if (path_translated[i] == '/' || path_translated[i] == '\\') {
+                slash = i;
+                break;
+            }
+        }
+        printf("%s", path_translated + slash + 1);
+    } else {
+        printf("md-cgi");
+    }
+
+    printf("</title>");
     printf("<link rel=\"shortcut icon\" href=\"");
 
     printFile(self_path, favicon_file);
@@ -91,8 +106,8 @@ int main(int argc, char* argv[], char *envp[]) {
     fread(buffer, sizeof(char), size, mdfile);
     fclose(mdfile);
 
-    unsigned parser_flags = MD_DIALECT_COMMONMARK;
-    unsigned renderer_flags = MD_DIALECT_GITHUB | MD_FLAG_UNDERLINE | MD_FLAG_WIKILINKS | MD_FLAG_LATEXMATHSPANS;
+    unsigned parser_flags = MD_DIALECT_GITHUB | MD_FLAG_UNDERLINE | MD_FLAG_WIKILINKS | MD_FLAG_LATEXMATHSPANS;
+    unsigned renderer_flags = MD_DIALECT_COMMONMARK;
 
     md_html(buffer, size, process_output, NULL, parser_flags, renderer_flags);
 

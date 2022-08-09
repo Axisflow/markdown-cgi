@@ -61,7 +61,7 @@
             ```bash
             sudo a2enconf serve-cgi-bin.conf
             ```
-        3. Open your site config(/etc/apache2/sites-enabled/000-default.conf default)
+        3. Open your site config(`/etc/apache2/sites-enabled/000-default.conf` default)
             ```
             Action markdown /cgi-bin/md-cgi
             AddHandler markdown .md
